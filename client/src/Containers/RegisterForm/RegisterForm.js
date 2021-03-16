@@ -23,7 +23,7 @@ const RegisterForm = () => {
     e.preventDefault();
     if (passwordRepeat === password) {
       setMathcing(true);
-      fetch('https://salty-earth-47804.herokuapp.com/register', {
+      fetch('/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'Application/json',
