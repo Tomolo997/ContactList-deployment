@@ -1,0 +1,40 @@
+.Contacts {
+  margin-bottom: 5rem;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+}
+.Contacts::-webkit-scrollbar {
+  display: none;
+}
+.Contact {
+  margin-bottom: 2rem;
+  display: flex;
+  border: 1px solid black;
+  padding: 1rem;
+}
+.Firstname {
+  margin-right: 1rem;
+  font-size: 1.4rem;
+}
+.FirstNameSpan {
+  font-weight: 700;
+}
+label {
+  font-weight: 2rem;
+}
+.FormSpan {
+  font-size: 2rem;
+}
+.InvalidCredentails {
+  font-size: 1.2rem;
+}
+.InputForm {
+  padding: 0.8rem;
+  margin-left: 2rem;
+}
+.AddButton {
+  width: 10rem;
+}
+.ContactsScroll {
+}
