@@ -12,7 +12,7 @@ const Contacts = () => {
   const [errorWithCredentials, seterrorWithCredentials] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:4000/contacts', {
+    fetch('/contacts', {
       method: 'GET',
       headers: {
         'Content-Type': 'Application/json',
@@ -33,7 +33,7 @@ const Contacts = () => {
   }, [contacts]);
 
   const persist = (newContacts) => {
-    fetch('http://localhost:4000/contacts', {
+    fetch('/contacts', {
       method: 'POST',
       headers: {
         'Content-Type': 'Application/json',
