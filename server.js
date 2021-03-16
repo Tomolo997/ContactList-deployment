@@ -8,7 +8,8 @@ app.use(cors());
 app.use(express.json());
 const port = process.env.PORT || 4000;
 mongoose.connect(
-  'mongodb+srv://dbUser:dbUser@cluster0.3fyqd.mongodb.net/databaseforme?retryWrites=true&w=majority',
+  'mongodb+srv://dbUser:dbUser@cluster0.3fyqd.mongodb.net/todo?retryWrites=true&w=majority' ||
+    'mongodb:localhost/todo',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
