@@ -47,7 +47,7 @@ const Contact = (props) => {
           fillOutTheContact(contacts.contacts);
         } else return;
       });
-  }, [finalUpdate]);
+  }, [update]);
 
   const deleteUser = (id) => {
     fetch(`/contact/${credentials.username}/` + id, {
