@@ -40,7 +40,7 @@ db.once('open', function () {
 
 //routes
 app.get('/', (req, res) => {
-  res.send('root');
+  res.sendFile(path.resolve(__dirname, 'client/build/index.html'));
 });
 
 //post new registered user
