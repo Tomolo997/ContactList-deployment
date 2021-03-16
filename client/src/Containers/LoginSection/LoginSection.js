@@ -18,7 +18,7 @@ function FormSection() {
   };
   const login = (e) => {
     e.preventDefault();
-    fetch('http://localhost:4000/login', {
+    fetch('/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'Application/json',

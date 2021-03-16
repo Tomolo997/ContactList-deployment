@@ -29,7 +29,7 @@ const Contact = (props) => {
     setPhoneNumber(contact.phoneNumber);
   };
   useEffect(() => {
-    fetch('http://localhost:4000/contacts', {
+    fetch('/contacts', {
       method: 'GET',
       headers: {
         'Content-Type': 'Application/json',
@@ -50,7 +50,7 @@ const Contact = (props) => {
   }, [finalUpdate]);
 
   const deleteUser = (id) => {
-    fetch(`http://localhost:4000/contact/${credentials.username}/` + id, {
+    fetch(`/contact/${credentials.username}/` + id, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'Application/json',
@@ -66,22 +66,18 @@ const Contact = (props) => {
 
   const updateIt = () => {
     //fetch
-    fetch(
-      `http://localhost:4000/contact/${credentials.username}/` +
-        props.match.params.idContact,
-      {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'Application/json',
-          Authorization: `Basic ${credentials.username}:${credentials.password}`,
-        },
-        body: JSON.stringify({
-          firstName: updatedFirstName,
-          lastName: updatedLastName,
-          phoneNumber: updatedPhoneNumber,
-        }),
-      }
-    );
+    fetch(`/contact/${credentials.username}/` + props.match.params.idContact, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'Application/json',
+        Authorization: `Basic ${credentials.username}:${credentials.password}`,
+      },
+      body: JSON.stringify({
+        firstName: updatedFirstName,
+        lastName: updatedLastName,
+        phoneNumber: updatedPhoneNumber,
+      }),
+    });
     setFinalUpdate(!finalUpdate);
     setUpdate(!update);
   };
