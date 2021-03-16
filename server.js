@@ -7,14 +7,10 @@ const mongoose = require('mongoose');
 app.use(cors());
 app.use(express.json());
 const port = process.env.PORT || 4000;
-mongoose.connect(
-  'mongodb+srv://dbUser:dbUser@cluster0.3fyqd.mongodb.net/todo?retryWrites=true&w=majority' ||
-    'mongodb://localhost/todo',
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-);
+mongoose.connect(process.env.MONGODB_UIR || 'mongodb://localhost/todo', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 //Schemas
 const userSchema = new mongoose.Schema({
