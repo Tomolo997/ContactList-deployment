@@ -8,8 +8,7 @@ app.use(cors());
 app.use(express.json());
 const port = process.env.PORT || 4000;
 mongoose.connect(
-  'mongodb+srv://dbUser:dbUser@cluster0.3fyqd.mongodb.net/todo?retryWrites=true&w=majority' ||
-    'mongodb://localhost/todo',
+  'mongodb+srv://dbUser:dbUser@cluster0.3fyqd.mongodb.net/todo?retryWrites=true&w=majority',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -42,6 +41,12 @@ db.once('open', function () {
 app.get('/', (req, res) => {
   res.send('root');
 });
+
+app.get('/read', (req, res) => {
+  const user = await User.findOne({ username:"ay" });
+  res.send(user)
+});
+
 
 //post new registered user
 app.post('/register', async (req, res) => {
