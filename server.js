@@ -42,12 +42,6 @@ app.get('/', (req, res) => {
   res.send('root');
 });
 
-app.get('/read', (req, res) => {
-  const user = await User.findOne({ username:"ay" });
-  res.send(user)
-});
-
-
 //post new registered user
 app.post('/register', async (req, res) => {
   const { username, password } = req.body;
