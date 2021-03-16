@@ -9,7 +9,7 @@ app.use(express.json());
 const port = process.env.PORT || 4000;
 mongoose.connect(
   'mongodb+srv://dbUser:dbUser@cluster0.3fyqd.mongodb.net/todo?retryWrites=true&w=majority' ||
-    'mongodb:localhost/todo',
+    'mongodb://localhost/todo',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -152,13 +152,12 @@ app.put('/contact/:user/:id', async (req, res) => {
   console.log(idOfAuser);
   const user = await User.findOne({ username }).exec();
   await Contacts.updateOne(
-    { userId: user._id },
+    { userId: user._id, 'contacts._id': idOfAuser },
     {
-      contacts: {
-        _id: idOfAuser,
-        firstName: firstName,
-        lastName: lastName,
-        phoneNumber: phoneNumber,
+      $set: {
+        'contacts.$.firstName': firstName,
+        'contacts.$.lastName': lastName,
+        'contacts.$.phoneNumber': phoneNumber,
       },
     }
   );
