@@ -30,7 +30,7 @@ const Contacts = () => {
           setContacts(contacts.contacts);
         } else return;
       });
-  }, [contacts]);
+  }, []);
 
   const persist = (newContacts) => {
     fetch('/contacts', {
